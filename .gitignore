@@ -9,7 +9,7 @@
 /test/tmp/
 /test/version_tmp/
 /tmp/
-
+/log/*
 # Used by dotenv library to load environment variables.
 # .env
 
@@ -54,3 +54,27 @@ build-iPhoneSimulator/
 
 # Used by RuboCop. Remote config files pulled in from inherit_from directive.
 # .rubocop-https?--*
+
+# Ignore master key for decrypting credentials and more.
+/config/master.key
+
+/public/packs
+/public/packs-test
+/node_modules
+/yarn-error.log
+yarn-debug.log*
+.yarn-integrity
+
+# Ignore application configuration
+/config/application.yml
+
+config/settings.local.yml
+config/settings/*.local.yml
+config/environments/*.local.yml
+.framgia-ci-reports/
+.framgia-ci-result.temp.yml
+
+test/*
+storage/*
+node_modules/
+config/database.yml
