@@ -10,7 +10,7 @@ Rails.application.routes.draw do
       resources :category
       resources :users
       resources :books
-      resources :authors, :publishers
+      resources :authors, :orders, :order_details, :publishers
     end
     scope module: "website" do
       root "home#index"

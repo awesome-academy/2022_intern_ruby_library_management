@@ -1,0 +1,40 @@
+<tr>
+  <td>
+    <%= order_counter + 1 %>
+  </td>
+  <td>
+    <%= order.user.name %>
+  </td>
+  <td class="status-order-<%= order.id %>">
+    <%= render_status_order Order.statuses[order.status] %>
+  </td>
+  <td>
+    <%= order.note_user %>
+  </td>
+  <td>
+    <%= order.note_admin %>
+  </td>
+  <td>
+    <%= show_datetime(order.date_start) %>
+  </td>
+  <td>
+    <%= show_datetime(order.date_return) %>
+  </td>
+  <td>
+    <%= link_to admin_order_path(order),
+        class: "btn btn-icon btn-info",
+        data: { bs_toggle: "modal", bs_target: "#modalLive" },
+        remote: true do %>
+          <i class="fas fa-eye"></i>
+        <% end %>
+
+    <% if Order.statuses[order.status] === Settings.order.status.approved %>
+      <%= link_to admin_order_path(order, status: Settings.order.status.returned),
+          class: "btn btn-icon btn-success btn-returned-#{order.id}",
+          method: :patch,
+          remote: true do %>
+          <i class="fa fa-check" aria-hidden="true"></i>
+          <% end %>
+    <% end %>
+  </td>
+</tr>

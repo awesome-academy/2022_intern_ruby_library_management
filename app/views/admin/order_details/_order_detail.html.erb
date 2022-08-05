@@ -1,0 +1,64 @@
+<tr>
+  <td>
+    <%= order_detail_counter + 1 %>
+  </td>
+  <td>
+    <%= order_detail.book_name %>
+  </td>
+  <td>
+    <%= image_tag order_detail.book.display_image, class: "img-responsive author_image" %>
+  </td>
+  <td>
+    <div id="badge-order-detail-<%= order_detail.id %>">
+      <%= render_status_order_detail(OrderDetail.statuses[order_detail.status]).html_safe %>
+    </div>
+  </td>
+  <td>
+    <% if check_to_show_action_and_quantity_real(order_detail) %>
+      <div class="box-quantity_real">
+        <%= link_to admin_order_detail_path(order_detail, quantity_real: Settings.order_detail.quantity_real.descrese),
+            class: "quantity_real-action quantity_real-of-order-detail-#{order_detail.id} minus",
+            method: :patch, remote: true do %>
+            <i class="fa fa-minus" aria-hidden="true"></i>
+          <% end %>
+          <div class="quantity_real quantity_real-<%= order_detail.id %>"><%= order_detail.quantity_real %></div>
+          <%= link_to admin_order_detail_path(order_detail, quantity_real: Settings.order_detail.quantity_real.inscrese),
+              class: "quantity_real-action quantity_real-of-order-detail-#{order_detail.id} plus
+                #{order_detail.quantity > order_detail.quantity_real ? 'display_plus' : '' }",
+              method: :patch, remote: true do %>
+              <i class="fa fa-plus" aria-hidden="true"></i>
+            <% end %>
+      </div>
+    <% else %>
+      <div class="box-quantity_real">
+        <div class="quantity_real"><%= order_detail.quantity_real %></div>
+      </div>
+    <% end %>
+  </td>
+  <td class="p-0">
+    <% if check_to_show_action_and_quantity_real(order_detail) %>
+      <div class="box-status-order-detail" id="action-order-detail-<%= order_detail.id %>">
+        <%= link_to admin_order_detail_path(order_detail, status: OrderDetail.statuses.key(Settings.order_detail.status.accept)),
+            class: "status accept-status #{order_detail.status == OrderDetail.statuses.key(Settings.order_detail.status.accept) ?
+            "active" : ""}",
+            method: :patch, remote: true do %>
+          <div class="box-icon">
+            <i class="fa fa-check" aria-hidden="true"></i>
+          </div>
+        <% end %>
+        <%= link_to admin_order_detail_path(order_detail, status: OrderDetail.statuses.key(Settings.order_detail.status.disagree)),
+            class: "status disagree-status #{order_detail.status == OrderDetail.statuses.key(Settings.order_detail.status.disagree) ?
+            "active" : ""}",
+            method: :patch, remote: true do %>
+          <div class="box-icon">
+            <i class="fa fa-times" aria-hidden="true"></i>
+          </div>
+        <% end %>
+      </div>
+    <% else %>
+      <div class="box-status-order-detail">
+        <div class="badge badge-no-acion mt-3 bg-secondary"><%= t "no_action" %></div>
+      </div>
+    <% end %>
+  </td>
+</tr>

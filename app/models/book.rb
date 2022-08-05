@@ -43,4 +43,7 @@ class Book < ApplicationRecord
   scope :search_author, (lambda do |author|
     where(author_id: author) if author.present?
   end)
+  def display_image
+    image.filename.present? ? image : ""
+  end
 end

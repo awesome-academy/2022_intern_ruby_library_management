@@ -1,23 +1,23 @@
 <div class="container">
   <div class="row">
-    <div class="box-author-detail">
-      <div class="box-author-detail__item">
+    <div class="box-detail">
+      <div class="box-detail__item">
         <strong><%= t "name" %>:</strong>
         <span><%= @author.name %></span>
       </div>
-      <div class="box-author-detail__item">
+      <div class="box-detail__item">
         <strong><%= t "gender" %>: </strong>
         <span><%= t @author.gender %></span>
       </div>
-      <div class="box-author-detail__item">
+      <div class="box-detail__item">
         <strong><%= t "birthday" %>: </strong>
         <span><%= @author.dob %></span>
       </div>
-      <div class="box-author-detail__item">
+      <div class="box-detail__item">
         <strong><%= t "description" %>: </strong>
         <span><%= @author.description %></span>
       </div>
-      <div class="box-author-detail__item">
+      <div class="box-detail__item">
         <strong><%= t "image" %>: </strong>
         <div><%= image_tag @author.display_image %></div>
       </div>

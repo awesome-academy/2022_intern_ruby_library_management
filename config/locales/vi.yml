@@ -1,5 +1,5 @@
 vi:
-  hello: "Xin chào"
+  hello: "Xin chào "
   nav: "Tính năng"
   index: "Trang chủ"
   page1: "Trang 1"
@@ -41,7 +41,7 @@ vi:
   book_love: "Sách được yêu thích nhất"
   service: "Dich vụ"
   time_work: "Thời Gian làm Việc"
-  time_content: "Từ 8h00 – 22h00 các ngày từ thứ 2 đến Chủ nhật"
+  time_content: "Từ 8h00_22h00 các ngày từ thứ 2 đến Chủ nhật"
   top_book: "TOP SÁCH YÊU THÍCH NHẤT"
   more: "Xem Thêm"
   login_now: "ĐĂNG NHẬP NGAY"
@@ -78,6 +78,8 @@ vi:
   go_library: "Thư viện của tôi"
   result_search: "Kết quả tìm kiếm"
   enter_book_name: "Nhập tên sách các bạn muốn tìm ..."
+  must_greater_0: "Số lượng mượn phải lớn hơn 0"
+  cannot_be_greater_than_quantity_book: "Số lượng sách trong thư viện không đủ đáp ứng"
   order_detail:
     name: "Mượn sách"
   choose_category: "Chọn danh mục muốn tìm kiếm"
@@ -211,6 +213,18 @@ vi:
     products:
       not_found_book: "Không tìm thấy sách"
       category_name: "Danh muc "
+  order: "Yêu cầu mượn sách"
+  status: "Trạng thái"
+  image: "Hình ảnh"
+  order: "Yêu cầu mượn sách"
+  status: "Trạng thái"
+  quantity: "Số lượng"
+  no_action: "Không có hành động"
+  pending: "Chờ duyệt"
+  accept: "Chấp nhận"
+  disagree: "Từ chối"
+  user_login:
+    error_login: "Tên đăng nhập hoặc mật khẩu không đúng"
   admin:
     authors:
       index:
@@ -249,5 +263,29 @@ vi:
       update:
         updated: "Cập nhật nhà xuất bản thành công"
         updated_fails: "Cập nhật nhà xuất bản thất bại"
-  post:
-    index: "Bài viết"
+    post:
+      index: "Bài viết"
+      update:
+        updated: "Cập nhật tác giả thành công"
+        updated_fails: "Cập nhật tác giả thất bại"
+    orders:
+      name_user_order: "Tên người mượn"
+      note_user: "Ghi chú"
+      note_admin: "Lời nhắc"
+      date_start: "Ngày mượn"
+      date_return: "Ngày trả"
+      note_admin_placeholder: "Nội dung gửi tới người mượn"
+      index:
+        order: "Yêu cầu mượn sách"
+        list_order: "Danh sách yêu cầu mượn sách"
+      show:
+        order_detail: "Chi tiết yêu cầu mượn sách"
+      update:
+        send_note_admin_success: "Gửi lời nhắn tới người dùng thành công"
+        updated_status_success: "Cập nhật trạng thái yêu cầu mượn sách thành công"
+    order_details:
+      book_title: "Tên sách"
+      not_found_order_detail: "Không tìm thấy chi tiết hóa đơn"
+    auths:
+      mail:
+        title_send_note_admin: "Lời nhắn của admin tới yêu cầu mượn sách của bạn"
