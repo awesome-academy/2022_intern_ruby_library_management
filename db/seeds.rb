@@ -50,13 +50,3 @@ end
 
 end
 
-Book.destroy_all
-39.times do |n|
-  Book.create!(
-    name: Faker::Book.title,
-    description: Faker::Lorem.sentence(word_count: 20),
-    quantity: 20,
-    author_id: Author.first.id,
-    publisher_id: Publisher.first.id
-  )
-end

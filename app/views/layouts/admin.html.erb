@@ -8,6 +8,7 @@
     <%= stylesheet_link_tag "admin", media: "all", "data-turbolinks-track": "preload" %>
     <%= stylesheet_link_tag "custom", media: "all", "data-turbolinks-track": "preload" %>
     <%= javascript_pack_tag "admin", "data-turbolinks-track": "reload" %>
+    <%= tinymce_assets %>
   </head>
   <body>
     <% flash.each do |message_type, message| %>
@@ -21,5 +22,6 @@
   <script>
     var language = "<%= I18n.locale %>";
     window.I18n  = <%= current_translations.to_json.html_safe %>;
+    $('.select2_category').select2()
   </script>
 </html>

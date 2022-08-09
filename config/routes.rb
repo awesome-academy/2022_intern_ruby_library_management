@@ -9,7 +9,7 @@ Rails.application.routes.draw do
       put "/user/activate:id", to: "users#update", :as => :user_activate
       resources :category
       resources :users
-      resources :books, only: %i(index new)
+      resources :books
       resources :authors
     end
   end

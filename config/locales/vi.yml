@@ -86,6 +86,9 @@ vi:
     edit: "Sủa sách"
     delete: "Xoá sách"
     search: "Tìm kiếm"
+    add_ss: "Đã thêm 1 cuốn sách mới"
+    error: "Lỗi thêm sách"
+    image: "Ảnh trang bìa"
   close: "Đóng"
   male: "Nam"
   female: "Nữ"
@@ -118,3 +121,5 @@ vi:
       update:
         updated: "Cập nhật tác giả thành công"
         updated_fails: "Cập nhật tác giả thất bại"
+  publisher:
+    name: "Nhà xuất bản"

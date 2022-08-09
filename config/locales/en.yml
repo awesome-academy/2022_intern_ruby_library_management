@@ -85,6 +85,9 @@ en:
     edit: "Edit a book"
     delete: "Delete a book"
     search: "Search"
+    add_ss: "Add new book successfuly."
+    error: "Add new category faild."
+    image: "Image"
   close: "Close"
   male: "Male"
   female: "Female"
@@ -113,3 +116,5 @@ admin:
     update:
       updated: "Update author successfuly"
       updated_fails: "Update author faild"
+  publisher:
+    name: "Publisher"

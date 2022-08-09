@@ -1,0 +1,41 @@
+<div class="col-md-9">
+  <%= form_for @book, url: admin_books_path do |f| %>
+    <%= render "shares/error_messages", object: f.object%>
+    <div class="form-group">
+      <%= f.label t("books.name"), class:"form-label" %>
+      <%= f.text_field :name, class: "form-control", id:"exampleInputName1" %>
+    </div>
+    <div class="form-group">
+      <%= f.label t("books.image"), class:"form-label" %>
+      <%= f.file_field :image, class: "form-control", id:"exampleInputImage1" %>
+    </div>
+    <div class="form-group">
+      <%= f.label t("category.title"), class:"form-label" %>
+      <%= f.select :category_book_ids, options_for_select(CategoryBook.pluck(:name, :id)), {},
+      {:multiple => true, class: "form-select select2_category"} %>
+    </div>
+    <div class="form-group">
+      <%= f.label t("admin.authors.index.author"), class:"form-label" %>
+      <%= f.select :author_id, options_for_select(Author.pluck(:name, :id)), {},
+      {:class => "form-select select2_author"} %>
+    </div>
+    <div class="form-group">
+      <%= f.label t("publisher.name"), class:"form-label" %>
+      <%= f.select :publisher_id, options_for_select(Publisher.pluck(:name, :id)), {},
+      {:class => "form-select select2_author"} %>
+    </div>
+    <div class="form-group">
+      <%= f.label t("books.count"), class:"form-label" %>
+      <%= f.text_field :quantity, class: "form-control",
+      id:"exampleInputQuantity1" %>
+    </div>
+    <div class="form-group">
+      <%= f.label t("books.des"), class:"form-label" %>
+      <%= f.text_area :description, class: "form-control tinymce", id:"exampleInputDescription1" %>
+      <%= tinymce %>
+    </div>
+    <button type="submit" class="btn btn-primary">
+      <%= t "books.add" %>
+    </button>
+  <% end %>
+</div>

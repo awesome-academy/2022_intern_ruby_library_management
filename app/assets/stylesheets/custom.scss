@@ -1,5 +1,6 @@
 @import "toastr";
 @import "color";
+@import "assets/select2.min";
 
 .toast-close-button {
   position: relative;
@@ -101,22 +102,26 @@
     width: 102px;
   }
 }
-.wid-60{
+.wid-60 {
   width: 60px;
 }
 
-.table-user{
+.table-user {
   tr{
     height: 63px;
     line-height: 63px;
   }
 }
 
-.w-180{
+.w-180 {
   width: 180px;
 }
 
-.w-400{
+.w-150 {
+  width: 150px;
+}
+
+.w-400 {
   min-width: 400px;
   width: 400px;
 }

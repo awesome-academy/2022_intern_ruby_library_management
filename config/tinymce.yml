@@ -1,0 +1,29 @@
+toolbar1: styleselect | insert | bold italic underline | bullist numlist outdent indent alignleft aligncenter forecolor backcolor | code
+toolbar2:
+menubar: file edit view table
+plugins:
+  - table
+  - code
+  - image
+  - media
+  - advlist
+  - autolink
+  - autosave
+  - lists
+  - link
+  - charmap
+  - hr
+  - searchreplace
+  - wordcount
+  - visualblocks
+  - visualchars
+  - fullscreen
+  - nonbreaking
+  - directionality
+  - paste
+  - textcolor
+  - colorpicker
+selector: textarea:not(.no-wysiwyg)
+browser_spellcheck: true
+advlist_bullet_styles: default
+advlist_number_styles: default

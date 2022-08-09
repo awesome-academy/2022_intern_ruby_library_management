@@ -1,12 +1,9 @@
 <tr>
   <td>
-    <%= image_tag book.image, alt: book.name, class: "img-radius img-fluid wid-60" %>
+    <%= image_tag book.image, class: "img-fluid w-150" if book.image.attached? %>
   </td>
   <td>
     <%= book.name %>
-  </td>
-  <td class="w-400">
-    <%= book.description %>
   </td>
   <td>
     <%= book.quantity %>

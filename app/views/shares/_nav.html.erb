@@ -170,6 +170,16 @@
             </li>
           </ul>
         </li>
+        <li class="nav-item">
+          <%= link_to admin_authors_path, class:"nav-link" do %>
+            <span class="pcoded-micon">
+              <i class="fas fa-user-secret"></i>
+            </span>
+            <span class="pcoded-mtext">
+              <%= t "admin.authors.index.author" %>
+            </span>
+          <% end %>
+        </li>
         <li class="nav-item pcoded-hasmenu">
           <a href="#" class="nav-link ">
             <span class="pcoded-micon">
