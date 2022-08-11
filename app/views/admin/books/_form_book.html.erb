@@ -1,5 +1,5 @@
 <div class="col-md-9">
-  <%= form_for @book, url: admin_books_path do |f| %>
+  <%= form_for([:admin, @book]) do |f| %>
     <%= render "shares/error_messages", object: f.object%>
     <div class="form-group">
       <%= f.label t("books.name"), class:"form-label" %>
@@ -11,17 +11,17 @@
     </div>
     <div class="form-group">
       <%= f.label t("category.title"), class:"form-label" %>
-      <%= f.select :category_book_ids, options_for_select(CategoryBook.pluck(:name, :id)), {},
+      <%= f.select :category_book_ids, options_for_select(CategoryBook.pluck(:name, :id), selected: @arr), {},
       {:multiple => true, class: "form-select select2_category"} %>
     </div>
     <div class="form-group">
       <%= f.label t("admin.authors.index.author"), class:"form-label" %>
-      <%= f.select :author_id, options_for_select(Author.pluck(:name, :id)), {},
+      <%= f.select :author_id, options_for_select(Author.pluck(:name, :id), selected: @book.author_id), {},
       {:class => "form-select select2_author"} %>
     </div>
     <div class="form-group">
       <%= f.label t("publisher.name"), class:"form-label" %>
-      <%= f.select :publisher_id, options_for_select(Publisher.pluck(:name, :id)), {},
+      <%= f.select :publisher_id, options_for_select(Publisher.pluck(:name, :id), selected: @book.publisher_id), {},
       {:class => "form-select select2_author"} %>
     </div>
     <div class="form-group">

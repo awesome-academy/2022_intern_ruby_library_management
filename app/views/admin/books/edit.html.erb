@@ -1,0 +1,55 @@
+<% provide :title, t("books.edit") %>
+
+<section class="pcoded-main-container">
+  <div class="pcoded-wrapper">
+    <div class="pcoded-content">
+      <div class="pcoded-inner-content">
+        <div class="main-body">
+          <div class="page-wrapper">
+            <div class="page-header">
+              <div class="page-block">
+                <div class="row align-items-center">
+                  <div class="col-md-12">
+                    <div class="page-header-title">
+                      <h5 class="m-b-10">
+                        <%= t "home" %>
+                      </h5>
+                    </div>
+                    <ul class="breadcrumb">
+                      <li class="breadcrumb-item">
+                        <%= link_to "#" do %>
+                          <i class="feather icon-home"></i>
+                        <% end %>
+                      </li>
+                      <li class="breadcrumb-item">
+                        <%= link_to t("home"), admin_home_path %>
+                      </li>
+                      <li class="breadcrumb-item">
+                        <%= link_to t("books.edit"), "#" %>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-sm-12">
+                <div class="page-header">
+                  <div class="">
+                    <h5>
+                      <%= t "books.edit"%>
+                    </h5>
+                  </div>
+                  <div class="card-body">
+                    <%= render "form_book" %>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

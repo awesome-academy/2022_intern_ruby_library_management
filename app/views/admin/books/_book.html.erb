@@ -1,6 +1,6 @@
 <tr>
   <td>
-    <%= image_tag book.image, class: "img-fluid w-150" if book.image.attached? %>
+    <%= image_tag book.image, class: "img-fluid w-100px" if book.image.attached? %>
   </td>
   <td>
     <%= book.name %>
@@ -18,14 +18,22 @@
     <%= link_to "javascript:void(0)",
       {class: "btn btn-icon btn-success show_book",
         data: { bs_toggle: "modal",
+        url_show_book: admin_book_path(book),
         bs_target: "#exampleModalCenter"}} do %>
       <i class="icon feather icon-eye f-16"></i>
     <% end %>
-    <%= link_to "javascript:void(0)",
+    <%= link_to edit_admin_book_path(book),
       {class: "btn btn-icon btn-warning edit_book",
         data: { url: "#",
         bs_placement: "top"}} do %>
-      <i class="icon feather icon-check-square f-16"></i>
+      <i class="icon feather icon-edit f-16"></i>
+    <% end %>
+    <%= link_to admin_book_path(book),
+      {class: "btn btn-icon btn-danger delete_book",
+        method: :delete,
+        data: { url: "#",
+        bs_placement: "top"}} do %>
+      <i class="icon feather icon-trash f-16"></i>
     <% end %>
   </td>
 </tr>

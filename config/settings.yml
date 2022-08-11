@@ -6,6 +6,7 @@ user:
   avatar_default: "user/avatar.png"
 book:
   min: 3
+  max_page_book: 5
 category:
   min: 5
 author:

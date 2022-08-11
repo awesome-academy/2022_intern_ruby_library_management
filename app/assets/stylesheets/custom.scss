@@ -113,12 +113,24 @@
   }
 }
 
+.table-book {
+  td {
+    height: 129px;
+    line-height: 145px;
+    overflow: hidden;
+  }
+}
+
 .w-180 {
   width: 180px;
 }
 
 .w-150 {
   width: 150px;
+}
+
+.w-100px {
+  width: 100px;
 }
 
 .w-400 {
