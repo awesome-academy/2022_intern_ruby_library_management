@@ -1,20 +1,19 @@
-<% if @order_detail.errors.any? %>
-  toastr.error("<%= @order_detail.errors.first.message %>", "", {"closeButton": true})
+<% if order_detail.errors.any? %>
+  toastr.error("<%= order_detail.errors.first.message %>", "", {"closeButton": true})
 <% else %>
+console.log(1)
   if("<%= action %>" == "change_status"){
     $("#action-order-detail-<%= order_detail.id %> .status").removeClass("active")
-
-
     if("<%= order_detail.status %>" != "pending"){
       $("#action-order-detail-<%= order_detail.id %> .<%= order_detail.status %>-status").addClass("active")
       $(".quantity_real-of-order-detail-<%= order_detail.id %>").hide()
-      $(".box-status-order-detail#action-order-detail-<%= order_detail.id %>").html("<div class='badge badge-no-acion mt-3 bg-secondary'><%= t 'no_action' %></div>")
+      $(".box-status-order-detail#action-order-detail-<%= order_detail.id %>").html("<div class='badge badge-no-acion mt-3 bg-secondary'><%= t('no_action') %></div>")
     }
     if("<%= order_detail.status %>" == "accept"){
-      $("#order_note_admin").val($("#order_note_admin").val() + "\n I18n.t('book') <%= order_detail.book.name %> I18n.t('accept_quantity_book') <%= order_detail.quantity_real %>")
+      $("#order_note_admin").val($("#order_note_admin").val() + "\n <%= t('book') %> <%= order_detail.book_name %> <%= t('accept_quantity_book') %> <%= order_detail.quantity_real %>")
     }
     if("<%= order_detail.status %>" == "disagree"){
-      $("#order_note_admin").val($("#order_note_admin").val() + "\n I18n.t('book') <%= order_detail.book.name %> I18n.t('disagree_quantity_book') ")
+      $("#order_note_admin").val($("#order_note_admin").val() + "\n <%= t('book') %> <%= order_detail.book_name %> <%= t('disagree_quantity_book') %> ")
     }
 
     $("#badge-order-detail-<%= order_detail.id %>").html("<%= render_status_order_detail(OrderDetail.statuses[order_detail.status]).html_safe %>")

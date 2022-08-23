@@ -39,6 +39,10 @@ class Order < ApplicationRecord
     [:latest]
   end
 
+  def send_mail_confirm_order
+    OrderMailer.send_note_admin(self).deliver_now
+  end
+
   private
 
   def update_quantity_book

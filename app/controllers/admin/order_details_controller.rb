@@ -4,7 +4,7 @@ class Admin::OrderDetailsController < AdminController
 
   def update
     if params.key?(:status)
-      @order_detail.update! status: OrderDetail.statuses[params[:status]]
+      @order_detail.update status: OrderDetail.statuses[params[:status]]
       @order_detail.update_quantity_book if @order_detail.accept?
       render :update,
              locals: {order_detail: @order_detail, action: "change_status"}

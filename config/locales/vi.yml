@@ -89,6 +89,7 @@ vi:
   choose_author: "Chọn tác giả muốn tìm kiếm"
   enter_name_or_desc: "Nhập tên hoặc mô tả muốn tìm kiếm"
   clear_search: "Xóa bộ lọc"
+  accept_quantity_book: "của bạn mượn được chấp nhận với số lượng là"
   news:
     post1: "Tin Tức"
     post2: "Sự kiện"
