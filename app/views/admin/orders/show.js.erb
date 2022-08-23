@@ -1,0 +1,5 @@
+$("#modalLiveLabel").html("<%= I18n.t('admin.orders.show.order_detail') %>");
+$("#contentTableOrder").html("<%= j render @orders %>");
+$(".modal-body").html("<%= j render 'admin/order_details/index' %>");
+$(".modal-body").append("<%= j render 'admin/orders/note_admin' %>");
+$("#modalLive").modal("show");

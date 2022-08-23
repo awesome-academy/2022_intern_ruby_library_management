@@ -1,0 +1,14 @@
+<%= form_with(model: [:admin, @order], id: "order_form", local: false) do |f| %>
+  <div class="card card-note-admin mb-0">
+    <div class="card-body ">
+      <div class="mb-4">
+        <%= f.label :note_admin, t("admin.orders.note_admin"), { class: "form-label text-bold" } %>
+        <%= f.text_area :note_admin, class: "form-control", rows: 4 , placeholder: t("admin.orders.note_admin_placeholder") %>
+      </div>
+
+      <% if !@order.returned? && !@order.canceled? %>
+        <%= f.submit t("submit") , class: "btn btn-primary btn-submit-author" %>
+      <% end %>
+    </div>
+  </div>
+<% end %>

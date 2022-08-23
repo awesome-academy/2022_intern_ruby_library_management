@@ -36,3 +36,22 @@ status:
   internal_server_error: 500
   not_found: 404
 max_item_book: 20
+order:
+  max_page: 6
+  status:
+    pending: 0
+    approved: 1
+    returned: 2
+    canceled: 3
+order_detail:
+  status:
+    pending: 0
+    accept: 1
+    disagree: 2
+  quantity_real:
+    inscrese: "inscrese"
+    descrese: "descrese"
+status:
+  success: 200
+  internal_server_error: 500
+  not_found: 404

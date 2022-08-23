@@ -1,0 +1,30 @@
+<% if @order_detail.errors.any? %>
+  toastr.error("<%= @order_detail.errors.first.message %>", "", {"closeButton": true})
+<% else %>
+  if("<%= action %>" == "change_status"){
+    $("#action-order-detail-<%= order_detail.id %> .status").removeClass("active")
+
+
+    if("<%= order_detail.status %>" != "pending"){
+      $("#action-order-detail-<%= order_detail.id %> .<%= order_detail.status %>-status").addClass("active")
+      $(".quantity_real-of-order-detail-<%= order_detail.id %>").hide()
+      $(".box-status-order-detail#action-order-detail-<%= order_detail.id %>").html("<div class='badge badge-no-acion mt-3 bg-secondary'><%= t 'no_action' %></div>")
+    }
+    if("<%= order_detail.status %>" == "accept"){
+      $("#order_note_admin").val($("#order_note_admin").val() + "\nCuốn sách <%= order_detail.book.name %> của bạn mượn được chấp nhận với số lượng là <%= order_detail.quantity_real %>")
+    }
+    if("<%= order_detail.status %>" == "disagree"){
+      $("#order_note_admin").val($("#order_note_admin").val() + "\nCuốn sách <%= order_detail.book.name %> của bạn mượn bị từ chối vì: ")
+    }
+
+    $("#badge-order-detail-<%= order_detail.id %>").html("<%= render_status_order_detail(OrderDetail.statuses[order_detail.status]) %>")
+  }
+
+  if ("<%= action %>" == "change_quantity-real") {
+    $(".quantity_real-<%= order_detail.id %>").html("<%= order_detail.quantity_real %>")
+    if (<%= order_detail.quantity_real < order_detail.quantity %>)
+      $(".quantity_real-of-order-detail-<%= order_detail.id%>.plus").addClass("display_plus")
+    else
+      $(".quantity_real-of-order-detail-<%= order_detail.id%>.plus").removeClass("display_plus")
+  }
+<% end %>

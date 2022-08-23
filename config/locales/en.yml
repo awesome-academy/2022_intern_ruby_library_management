@@ -192,6 +192,9 @@ en:
     returned_success: "Cancellation of order is successful"
     returned_faild: "Cancellation of failed booking request"
     details: "Menu details"
+  order: "Order"
+  user_login:
+    error_login: "invalid username or password"
 admin:
   authors:
     index:
@@ -228,3 +231,19 @@ admin:
       updated_fails: "Update publisher faild"
   post:
     index: "Posts"
+  orders:
+    name_user_order: "User order"
+    note_user: "Note Order"
+    note_admin: "Reminder"
+    date_start: "Start date"
+    date_return: "Return date"
+    index:
+      order: "Order"
+      list_order: "List order"
+    show:
+      order_detail: "Detail Order"
+    update:
+      send_note_admin_success: "Send note admin to user success"
+  order_details:
+    book_title: "Book title"
+    not_found_order_detail: "Not found Order detail"

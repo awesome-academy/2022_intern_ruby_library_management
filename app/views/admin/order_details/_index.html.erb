@@ -1,0 +1,61 @@
+<div class="main-body">
+  <div class="page-wrapper">
+    <div class="row">
+      <div class="col-xl-12">
+        <div class="card">
+          <div class="card-header">
+            <div class="box-detail p-0">
+              <div class="box-detail__item">
+                <strong><%= t "admin.orders.name_user_order" %>: </strong>
+                <span><%= @order.user.name %></span>
+              </div>
+              <div class="box-detail__item">
+                <strong><%= t "admin.orders.note_user" %>: </strong>
+                <span><%= @order.note_user %></span>
+              </div>
+              <div class="box-detail__item">
+                <strong><%= t "admin.orders.date_start" %>: </strong>
+                <span><%= show_datetime(@order.date_start) %></span>
+              </div>
+              <div class="box-detail__item">
+                <strong><%= t "admin.orders.date_return" %>: </strong>
+                <span><%= show_datetime(@order.date_return) %></span>
+              </div>
+            </div>
+          </div>
+          <div class="card-body table-border-style">
+            <div class="table-responsive">
+              <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th style="width: 5%;">
+                      STT
+                    </th>
+                    <th style="width: 32%;">
+                      <%= t "admin.order_details.book_title" %>
+                    </th>
+                    <th style="width: 20%;">
+                      <%= t "image" %>
+                    </th>
+                    <th style="width: 13%;">
+                      <%= t "status" %>
+                    </th>
+                    <th style="width: 15%;">
+                      <%= t "quantity" %>
+                    </th>
+                    <th style="width: 15%;">
+                      <%= t "action" %>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody id="contentTableOrderDetail">
+                  <%= render partial: 'admin/order_details/order_detail', collection: @order_details %>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

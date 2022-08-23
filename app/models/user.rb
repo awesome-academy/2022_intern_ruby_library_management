@@ -3,7 +3,7 @@ class User < ApplicationRecord
   has_one_attached :image
 
   has_many :books, dependent: :destroy
-  has_many :order, dependent: :destroy
+  has_many :orders, dependent: :destroy
 
   validates :name, presence: true, length: {maximum: Settings.user.name_max}
   validates :email, presence: true, length: {maximum: Settings.user.email_max},

@@ -1,0 +1,17 @@
+<% if @order.errors.any? %>
+  toastr.error("<%= @order.errors.first.full_message %>", "", {"closeButton": true})
+<% else %>
+  <% if status === Settings.status.success %>
+    <% if action == "change_note_admin" %>
+      $("#contentTableOrder").html("<%= j render @orders %>");
+      toastr.success(I18n.admin.orders.update.send_note_admin_success, "", {"closeButton": true})
+      $("#modalLive").modal("hide")
+    <% else %>
+      $(".status-order-<%= @order.id %>").html("<%= render_status_order Order.statuses[@order.status] %>")
+      <%= @order.status == Order.statuses.key(Settings.order.status.returned) %> && $(".btn-returned-<%= @order.id %>").remove()
+      toastr.success(I18n.admin.orders.update.updated_status_success, "", {"closeButton": true})
+    <% end %>
+  <% else %>
+    toastr.error("<%= t 'error' %>", "", {"closeButton": true})
+  <% end %>
+<% end %>

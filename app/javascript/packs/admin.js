@@ -26,6 +26,7 @@ require("admin/pcoded.min")
 require("admin/index.min")
 require("admin/author")
 require("admin/publisher")
+require("admin/order_detail")
 
 Turbolinks.start()
 ActiveStorage.start()
