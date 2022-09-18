@@ -2,7 +2,8 @@ class User < ApplicationRecord
   enum role: {user: 0, super_admin: 1, manager: 2}
 
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+         :recoverable, :rememberable, :validatable, :trackable,
+         :omniauthable, omniauth_providers: [:facebook, :google_oauth2]
 
   before_save :downcase_email
   has_one_attached :image
@@ -31,6 +32,22 @@ class User < ApplicationRecord
 
   def activate_admin
     update_columns admin: true
+  end
+
+  class << self
+    def from_omniauth auth
+      result = User.where(email: auth.info.email).first
+      result || where(provider: auth.provider,
+                      uid: auth.uid).first_or_create do |user|
+        user.email = auth.info.email
+        user.password = Devise.friendly_token[0, 20]
+        user.name = auth.info.name
+        user.avatar = auth.info.image
+        user.uid = auth.uid
+        user.provider = auth.provider
+        user.user!
+      end
+    end
   end
 
   private

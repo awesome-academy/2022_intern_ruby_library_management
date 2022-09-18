@@ -60,15 +60,15 @@
               </button>
             </div>
             <div class="flex flex-wrap justify-content-center m-10-0">
-              <a href="#" class="login100-social-item bg1">
+              <%= link_to user_facebook_omniauth_authorize_path, class:"login100-social-item bg1" do %>
                 <i class="fab fa-facebook-f"></i>
-              </a>
+              <% end %>
               <a href="#" class="login100-social-item bg2">
                 <i class="fab fa-twitter"></i>
               </a>
-              <a href="#" class="login100-social-item bg3">
+              <%= link_to user_google_oauth2_omniauth_authorize_path, class:"login100-social-item bg3" do %>
                 <i class="fab fa-google"></i>
-              </a>
+              <% end %>
             </div>
             <div class="or">
               <%= t "or" %>

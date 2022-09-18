@@ -6,6 +6,13 @@ class Admin::BooksController < AdminController
   def index
     @pagy, @books = pagy Book.latest_books,
                          items: Settings.book.max_page_book
+    respond_to do |format|
+      format.html
+      format.xlsx do
+        response.headers["Content-Disposition"] = "attachment;
+        filename=list_books_#{Time.zone.now.utc.strftime('%d_%m_%Y')}.xlsx"
+      end
+    end
   end
 
   def new
