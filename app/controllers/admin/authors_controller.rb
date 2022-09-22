@@ -19,19 +19,14 @@ class Admin::AuthorsController < ApplicationController
 
   def create
     @author = Author.new author_params
-    if @author.save
-      respond_to do |format|
-        @pagy, @authors = pagy Author.latest,
-                               items: Settings.author.max_page
+    @status = @author.save
+    respond_to do |format|
+      @pagy, @authors = pagy Author.latest,
+                             items: Settings.author.max_page
 
-        format.js do
-          render :update, locals: {status: Settings.status.success,
-                                   action: params[:action]}
-        end
+      format.js do
+        render :update, locals: {action: params[:action]}
       end
-    else
-      render :update, locals: {status: Settings.status.internal_server_error,
-                               action: params[:action]}
     end
   end
 
@@ -46,18 +41,13 @@ class Admin::AuthorsController < ApplicationController
   end
 
   def update
-    if @author.update author_params
-      @pagy, @authors = pagy Author.latest,
-                             items: Settings.author.max_page
-      respond_to do |format|
-        format.js do
-          render :update, locals: {status: Settings.status.success,
-                                   action: params[:action]}
-        end
+    @status = @author.update(author_params)
+    @pagy, @authors = pagy Author.latest,
+                           items: Settings.author.max_page
+    respond_to do |format|
+      format.js do
+        render :update, locals: {action: params[:action]}
       end
-    else
-      render :update, locals: {status: Settings.status.internal_server_error,
-                               action: params[:action]}
     end
   end
 
@@ -66,7 +56,7 @@ class Admin::AuthorsController < ApplicationController
       render json: {message: t(".deleted"), code: Settings.status.success}
     else
       render json: {message: t(".deleted_fails"),
-                    code: Settings.status.not_found}
+                    code: Settings.status.delete_fails}
     end
   end
 
