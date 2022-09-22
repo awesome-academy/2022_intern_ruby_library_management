@@ -5,11 +5,12 @@ class Author < ApplicationRecord
   has_many :books, dependent: :destroy
   has_one_attached :image
 
-  validates :name, presence: true, length: {minimum: Settings.author.min}
+  validates :name, presence: true, length:
+            {minimum: Settings.author.min, maximum: Settings.author.max}
   validates :gender, presence: true
   validates :dob, presence: true
-  validates :description, presence: true,
-            length: {minimum: Settings.author.min}
+  validates :description, presence: true, length:
+            {minimum: Settings.author.min, maximum: Settings.author.max}
   validates :image, content_type: {in: Settings.author.image_type},
                     size: {less_than: Settings.author.image_size.megabytes}
 

@@ -14,6 +14,7 @@ category:
 author:
   max_page: 4
   min: 3
+  max: 500
   image_type: ["image/jpeg", "image/gif", "image/png"]
   image_size: 5
   image_resize: [200, 200]
