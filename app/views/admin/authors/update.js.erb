@@ -1,7 +1,7 @@
 <% if @author.errors.any? %>
   toastr.error("<%= @author.errors.first.full_message %>", "", {"closeButton": true})
 <% else %>
-  <% if status === Settings.status.success %>
+  <% if @status %>
     $("#contentTableAuthor").html("<%= j render @authors %>")
     if("<%= action === 'create' %>" === "true"){
       $("#pagyAuthor").html("<%== j pagy_nav @pagy %>")
