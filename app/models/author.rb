@@ -14,9 +14,15 @@ class Author < ApplicationRecord
   validates :image, content_type: {in: Settings.author.image_type},
                     size: {less_than: Settings.author.image_size.megabytes}
 
+  ransack_alias :name_desc, :name_or_description
+
   scope :latest, ->{order created_at: :desc}
 
   def display_image
     image.filename.present? ? image : Settings.user.avatar_default
+  end
+
+  ransacker :dob do
+    Arel.sql("date(dob)")
   end
 end

@@ -17,6 +17,8 @@ class Order < ApplicationRecord
   scope :latest, ->{order updated_at: :desc}
   delegate :name, to: :user, prefix: true
 
+  ransack_alias :note_user_admin, :note_user_or_note_admin
+
   ransacker :date_return_eq do
     Order.sql("date(date_return_eq)")
   end
@@ -25,8 +27,16 @@ class Order < ApplicationRecord
     Order.sql("date(date_start_eq)")
   end
 
-  def send_mail_confirm_order
-    OrderMailer.send_note_admin(self).deliver_now
+  def self.ransackable_attributes auth_object = nil
+    if auth_object == :super_admin
+      super
+    else
+      %w(note_admin note_user date_start date_return)
+    end
+  end
+
+  def self.ransackable_scopes _auth_object = nil
+    [:latest]
   end
 
   private

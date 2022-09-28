@@ -8,7 +8,7 @@
             <div class="row align-items-center">
               <div class="col-md-12">
                 <div class="page-header-title">
-                  <h5 class="m-b-10"><%= t ".author_list" %></h5>
+                  <h5 class="m-b-10"><%= t "admin.orders.index.list_order" %></h5>
                 </div>
                 <ul class="breadcrumb">
                   <li class="breadcrumb-item">
@@ -17,7 +17,7 @@
                     <% end %>
                   </li>
                   <li class="breadcrumb-item"><%= link_to t(".order"), admin_orders_path %></li>
-                  <li class="breadcrumb-item"><%= t ".order_list" %></li>
+                  <li class="breadcrumb-item"><%= t "admin.orders.index.list_order" %></li>
                 </ul>
               </div>
             </div>
@@ -29,7 +29,56 @@
               <div class="col-xl-12">
                 <div class="card">
                   <div class="card-header">
-                  </div>
+                    <div class="row">
+                        <div class="row">
+                          <div class="col-sm-12">
+                            <h4 class="text-center text-danger">
+                              <%= t "admin.orders.orders_search" %>
+                            </h4>
+                            <hr>
+                          </div>
+                        </div>
+                        <%= form_tag admin_orders_path, method: :get, remote: true  do%>
+                          <div class="row">
+                            <div class="col-12 col-sm-12 col-md-3 col-lg-3 col-xl-3 col-xxl-3">
+                              <%= label :name_user, t("users.name_user"), class:"form-label" %>
+                              <%= text_field_tag :"q[user_name_cont]", nil, class:"form-control", placeholder: t("enter_name_or_desc") %>
+                            </div>
+                            <div class="col-12 col-sm-12 col-md-3 col-lg-3 col-xl-3 col-xxl-3">
+                              <%= label :note_user_or_note_admin ,t("admin.orders.index.note_user_and_admin"), class:"form-label" %>
+                              <%= text_field_tag :"q[note_user_admin_cont]", nil, class:"form-control", placeholder: t("enter_name_or_desc") %>
+                            </div>
+                            <div class="col-12 col-sm-12 col-md-3 col-lg-3 col-xl-3 col-xxl-3">
+                              <%= label :status, t("status"), class:"form-label" %>
+                              <%= select_tag :"q[status_eq]", options_for_select(Order.statuses), {:class => "form-select", include_blank: t("admin.orders.choose_status")} %>
+                            </div>
+                            <div class="row mt-3">
+                              <div class="col-12 col-sm-12 col-md-3 col-lg-3 col-xl-3 col-xxl-3">
+                                <%= label :date_start, t("admin.orders.date_start"), class:"form-label" %>
+                                <%= date_field_tag :"q[date_start_gteq]", nil, class:"form-control" %>
+                              </div>
+                              <div class="col-12 col-sm-12 col-md-3 col-lg-3 col-xl-3 col-xxl-3">
+                                <%= label :date_return, t("admin.orders.date_return"), class:"form-label" %>
+                                <%= date_field_tag :"q[date_return_lteq]", nil, class:"form-control" %>
+                              </div>
+                              <div class="col-12 container-btn-search col-sm-12 col-md- col-lg- col-xl- col-xxl-2">
+                                <div class="box-btn-search">
+                                  <button type="submit" class="btn btn-success w-100 search-order-p">
+                                    <i class="fas fa-search search-order"></i>
+                                    <span> <%= t "search" %></span>
+                                  </button>
+                                  <button class="btn btn-danger w-100">
+                                    <i class="fas fa-times"></i>
+                                    <%= link_to t("clear_search"), request.path, class:"cancel-button" %>
+                                  </button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        <% end %>
+                      </div>
+                      <hr>
+                    </div>
                   <div class="card-body table-border-style">
                     <div class="table-responsive">
                       <table class="table table-hover">
@@ -39,22 +88,22 @@
                               STT
                             </th>
                             <th>
-                              <%= t "user" %>
+                              <%= sort_link(@orders_search, :user_name, t("user"), default_order: :desc) %>
                             </th>
                             <th>
                               <%= t "status" %>
                             </th>
                             <th>
-                              <%= t "admin.orders.note_user" %>
+                              <%= sort_link(@orders_search, :note_user, t("admin.orders.note_user"), default_order: :desc) %>
                             </th>
                             <th>
-                              <%= t "admin.orders.note_admin" %>
+                              <%= sort_link(@orders_search, :note_admin, t("admin.orders.note_admin"), default_order: :desc) %>
                             </th>
                             <th>
-                              <%= t "admin.orders.date_start" %>
+                              <%= sort_link(@orders_search, :date_start, t("admin.orders.date_start"), default_order: :desc) %>
                             </th>
                             <th>
-                              <%= t "admin.orders.date_return" %>
+                              <%= sort_link(@orders_search, :date_return, t("admin.orders.date_return"), default_order: :desc) %>
                             </th>
                             <th>
                               <%= t "action" %>

@@ -2,6 +2,14 @@ require "rails_helper"
 include SessionsHelper
 
 RSpec.describe Admin::AuthorsController, type: :controller do
+  let(:admin){
+    FactoryBot.create :user
+  }
+
+  before do
+    sign_in admin
+  end
+
   let(:author_1){
     FactoryBot.create :author
   }

@@ -80,11 +80,15 @@ vi:
   enter_book_name: "Nhập tên sách các bạn muốn tìm ..."
   must_greater_0: "Số lượng mượn phải lớn hơn 0"
   cannot_be_greater_than_quantity_book: "Số lượng sách trong thư viện không đủ đáp ứng"
+  cannot_find_order: "Không tìm thấy phiếu mượn"
   show_user: "Người dùng"
   order_detail:
     name: "Mượn sách"
   choose_category: "Chọn danh mục muốn tìm kiếm"
+  choose_gender: "Chọn giới tính muốn tìm kiếm"
   choose_author: "Chọn tác giả muốn tìm kiếm"
+  enter_name_or_desc: "Nhập tên hoặc mô tả muốn tìm kiếm"
+  clear_search: "Xóa bộ lọc"
   news:
     post1: "Tin Tức"
     post2: "Sự kiện"
@@ -145,6 +149,7 @@ vi:
     like: "Yêu thích"
     books_cancel: "Sách đã trả"
     books: "Sách đã mượn"
+    name_user: "Tên người dùng"
   books:
     title: "Quản lý sách"
     analytics: "Thống kê"
@@ -233,7 +238,9 @@ vi:
     authors:
       index:
         author: "Tác giả"
+        create_author: "Tạo mới tác giả"
         list_author: "Danh sách tác giả"
+        name_desc_cont: "Tên hoặc mô tả"
       show:
         author_detail: "Chi tiết tác giả"
         not_found_author: "Không tìm thấy tác giả"
@@ -284,9 +291,12 @@ vi:
       date_start: "Ngày mượn"
       date_return: "Ngày trả"
       note_admin_placeholder: "Nội dung gửi tới người mượn"
+      choose_status: "Chọn trạng thái phiếu mượn"
+      orders_search: "Tìm kiếm phiếu mượn"
       index:
         order: "Yêu cầu mượn sách"
-        list_order: "Danh sách yêu cầu mượn sách"
+        list_order: "Danh sách phiếu mượn"
+        note_user_and_admin: "Ghi chú hoặc lời nhắc"
       show:
         order_detail: "Chi tiết yêu cầu mượn sách"
       update:

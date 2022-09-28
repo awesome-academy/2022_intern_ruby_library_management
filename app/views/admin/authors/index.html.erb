@@ -7,7 +7,7 @@
             <div class="row align-items-center">
               <div class="col-md-12">
                 <div class="page-header-title">
-                  <h5 class="m-b-10"><%= t ".author_list" %></h5>
+                  <h5 class="m-b-10"><%= t "admin.authors.index.list_author" %></h5>
                 </div>
                 <ul class="breadcrumb">
                   <li class="breadcrumb-item">
@@ -16,7 +16,7 @@
                     <% end %>
                   </li>
                   <li class="breadcrumb-item"><%= link_to t(".author"), admin_authors_path %></li>
-                  <li class="breadcrumb-item"><%= t ".author_list" %></li>
+                  <li class="breadcrumb-item"><%= t "admin.authors.index.list_author" %></li>
                 </ul>
               </div>
             </div>
@@ -29,10 +29,48 @@
                 <div class="card">
                   <div class="card-header">
                     <div class="box-button mt-2">
-                      <%= link_to t(".create_author"), new_admin_author_path,
+                      <%= link_to t("admin.authors.index.create_author"), new_admin_author_path,
                         class: "btn btn-icon btn-primary",
                         remote: true %>
                     </div>
+                    <div class="row">
+                      <div class="row">
+                        <div class="col-sm-12">
+                          <h4 class="text-center text-danger">
+                          </h4>
+                          <hr>
+                        </div>
+                      </div>
+                      <%= search_form_for @authors_search, url: admin_authors_path, method: :get, remote: true do |f| %>
+                        <div class="row no-wrap">
+                          <div class="col-12 col-sm-12 col-md-3 col-lg-3 col-xl-3 col-xxl-3">
+                            <%= f.label t("admin.authors.index.name_desc_cont"), class:"form-label" %>
+                            <%= f.search_field :name_desc_cont, class:"form-control", placeholder: t("enter_name_or_desc") %>
+                          </div>
+                          <div class="col-12 col-sm-12 col-md-3 col-lg-3 col-xl-3 col-xxl-3">
+                            <%= f.label t("gender"), class:"form-label" %>
+                            <%= f.select :gender_eq, Author.genders, {include_blank: t("choose_gender")}, {:class => "form-select"} %>
+                          </div>
+                          <div class="col-12 col-sm-12 col-md-3 col-lg-3 col-xl-3 col-xxl-3">
+                            <%= f.label t("birthday"), class:"form-label" %>
+                            <%= f.date_field :dob_cont, class:"form-control" %>
+                          </div>
+                          <div class="col-12 container-btn-search w-unset col-sm-12 col-md- col-lg- col-xl- col-xxl-2">
+                            <div class="box-btn-search w-100">
+                              <button type="submit" class="btn btn-danger w-100 search-author-p">
+                                <i class="fas fa-search search-author"></i>
+                                <span> <%= t "search" %></span>
+                              </button>
+                              <button class="btn btn-danger w-100">
+                                <i class="fas fa-times"></i>
+                                <%= link_to t("clear_search"), request.path, class:"cancel-button" %>
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      <% end %>
+                    </div>
+                    <hr>
                   </div>
                   <div class="card-body table-border-style">
                     <div class="table-responsive">
