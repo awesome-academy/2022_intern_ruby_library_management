@@ -1,7 +1,8 @@
-class Admin::OrdersController < ApplicationController
+class Admin::OrdersController < AdminController
   layout "admin"
   before_action :authenticate_user!
   before_action :find_by_id, only: %i(show update)
+  load_and_authorize_resource
 
   def index
     @orders_search = Order.ransack(params[:q],

@@ -7,6 +7,17 @@ class ApplicationController < ActionController::Base
   include SessionsHelper
   include Pagy::Backend
 
+  rescue_from CanCan::AccessDenied do |exception|
+    respond_to do |format|
+      format.json{head :forbidden, content_type: "text/html"}
+      format.html do
+        redirect_back fallback_location: root_path,
+                      alert: exception.message
+      end
+      format.js{head :forbidden, content_type: "text/html"}
+    end
+  end
+
   private
 
   def storable_location?

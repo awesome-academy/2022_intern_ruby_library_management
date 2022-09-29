@@ -29,9 +29,11 @@
                 <div class="card">
                   <div class="card-header">
                     <div class="box-button mt-2">
-                      <%= link_to t("admin.authors.index.create_author"), new_admin_author_path,
-                        class: "btn btn-icon btn-primary",
-                        remote: true %>
+                      <% if can? :create, @authors %>
+                        <%= link_to t("admin.authors.index.create_author"), new_admin_author_path,
+                          class: "btn btn-icon btn-primary",
+                          remote: true %>
+                      <% end %>
                     </div>
                     <div class="row">
                       <div class="row">
