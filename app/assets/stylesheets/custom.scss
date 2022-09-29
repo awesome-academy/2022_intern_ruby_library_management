@@ -423,3 +423,44 @@
 .sort {
   padding-right: 10px;
 }
+
+.loading {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+
+  span {
+    // text-align: ;
+  }
+}
+
+.container-btn-search {
+  flex-grow: 1;
+  display: flex;
+  align-items: flex-end;
+  width: 50%;
+
+  .box-btn-search {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 8px;
+
+    & > button {
+      margin-left: 1rem;
+    }
+
+    a {
+      color: $whitef;
+    }
+  }
+}
+
+.no-wrap {
+  flex-wrap: nowrap;
+}
+
+.w-unset {
+  width: unset;
+}

@@ -1,11 +1,19 @@
 class Admin::OrdersController < ApplicationController
   layout "admin"
-
+  before_action :authenticate_user!
   before_action :find_by_id, only: %i(show update)
 
   def index
-    @pagy, @orders = pagy Order.latest.includes(:user),
-                          items: Settings.order.max_page
+    @orders_search = Order.ransack(params[:q],
+                                   auth_object: set_ransack_auth_object)
+    if @orders_search.sorts.empty?
+      @orders_search.sorts = ["user_name asc", "note_user asc",
+                              "note_admin asc", "date_start asc",
+                              "date_return asc"]
+    end
+    @pagy, @orders = pagy @orders_search.result.includes(:user),
+                          items: Settings.order.max_page,
+                          link_extra: 'data-remote="true"'
   end
 
   def show
@@ -30,6 +38,10 @@ class Admin::OrdersController < ApplicationController
   end
 
   private
+
+  def set_ransack_auth_object
+    current_user.super_admin? ? :super_admin : :manager
+  end
 
   def find_by_id
     @order = Order.find_by id: params[:id]

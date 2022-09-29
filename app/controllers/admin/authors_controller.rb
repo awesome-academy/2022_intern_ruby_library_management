@@ -1,11 +1,17 @@
 class Admin::AuthorsController < ApplicationController
   layout "admin"
-
+  before_action :authenticate_user!
   before_action :find_by_id, except: %i(new create index)
 
   def index
-    @pagy, @authors = pagy Author.latest,
-                           items: Settings.author.max_page
+    @authors_search = Author.ransack(params[:q].try(:merge, m: "or"),
+                                     auth_object: set_ransack_auth_object)
+    if @authors_search.sorts.empty?
+      @authors_search.sorts = ["name asc", "created_at desc"]
+    end
+    @pagy, @authors = pagy @authors_search.result(distinct: true),
+                           items: Settings.author.max_page,
+                           link_extra: 'data-remote="true"'
   end
 
   def new
@@ -61,6 +67,10 @@ class Admin::AuthorsController < ApplicationController
   end
 
   private
+
+  def set_ransack_auth_object
+    current_user.super_admin? ? :super_admin : :manager
+  end
 
   def find_by_id
     @author = Author.find_by id: params[:id]

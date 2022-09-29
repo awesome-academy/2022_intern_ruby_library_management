@@ -1,0 +1,22 @@
+if(<%= @pagy.count %> == 0){
+  Swal.fire({
+    title: '<strong>' + "<%= j t("no_result") %>" + '</strong>',
+    html: "<%= j t("cannot_find_author") %>",
+    icon: 'warning',
+    showCancelButton: false,
+    reverseButtons: false,
+    showConfirmButton: false
+  })
+}else{
+  $(".search-author").remove();
+  $(".search-author-p").prepend("<span class='spinner-border spinner-border-sm spinner-border-sm-author' role='status'></span>")
+  $("#contentTableAuthor").html("<div class='loading'><span class='spinner-border text-center spinner-border-sm spinner-border-sm-author' role='status'></span><div>")
+  $("#pagyAuthor").html("")
+  setTimeout(render_author, 400);
+}
+function render_author() {
+  $("#contentTableAuthor").html("<%= j render @authors %>")
+  $("#pagyAuthor").html("<%== j pagy_nav @pagy %>")
+  $(".spinner-border-sm-author").remove();
+  $(".search-author-p").prepend("<i class='fas fa-search search-author'></i>")
+}
