@@ -18,17 +18,21 @@
         remote: true do %>
           <i class="fas fa-eye"></i>
         <% end %>
-    <%= link_to edit_admin_publisher_path(publisher),
-        class: "btn btn-icon btn-warning",
-        data: { bs_toggle: "modal" , bs_target: "#modalLive" },
-        remote: true do %>
-          <i class="fas fa-edit"></i>
-        <% end %>
-    <%= link_to "javascript:void(0)",
-      {class: "btn btn-icon btn-danger delete_publisher",
-        data: { url: admin_publisher_path(publisher),
-        bs_placement: "top"}} do %>
-      <i class="icon feather icon-trash-2 f-16"></i>
+    <% if can? :update, publisher %>
+      <%= link_to edit_admin_publisher_path(publisher),
+          class: "btn btn-icon btn-warning",
+          data: { bs_toggle: "modal" , bs_target: "#modalLive" },
+          remote: true do %>
+            <i class="fas fa-edit"></i>
+          <% end %>
+    <% end %>
+    <% if can? :destroy, publisher %>
+      <%= link_to "javascript:void(0)",
+        {class: "btn btn-icon btn-danger delete_publisher",
+          data: { url: admin_publisher_path(publisher),
+          bs_placement: "top"}} do %>
+        <i class="icon feather icon-trash-2 f-16"></i>
+      <% end %>
     <% end %>
   </td>
 </tr>

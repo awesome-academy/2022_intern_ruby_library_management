@@ -31,9 +31,11 @@
                 <div class="card">
                   <div class="card-header">
                     <div class="box-button mt-2">
-                      <%= link_to t(".create_publisher"), new_admin_publisher_path,
-                        class: "btn btn-icon btn-primary",
-                        remote: true %>
+                      <% if can? :create, @publishers %>
+                        <%= link_to t(".create_publisher"), new_admin_publisher_path,
+                          class: "btn btn-icon btn-primary",
+                          remote: true %>
+                      <% end %>
                     </div>
                   </div>
                   <div class="card-body table-border-style">

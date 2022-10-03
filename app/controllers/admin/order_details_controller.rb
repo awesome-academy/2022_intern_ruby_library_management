@@ -1,5 +1,6 @@
-class Admin::OrderDetailsController < ApplicationController
+class Admin::OrderDetailsController < AdminController
   before_action :find_by_id, only: %i(update)
+  load_and_authorize_resource
 
   def update
     if params.key?(:status)

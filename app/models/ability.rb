@@ -12,7 +12,8 @@ class Ability
     when "super_admin"
       can :manage, :all
     when "manager"
-      can %i(read create update), [Book, Category, Author, Publisher]
+      can %i(read create update), [Book, Category, OrderDetail, Order]
+      can %i(read), [Author, Publisher]
       can :read, User
     when "user"
       cannot :destroy, Order

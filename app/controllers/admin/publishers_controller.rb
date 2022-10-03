@@ -1,7 +1,7 @@
-class Admin::PublishersController < ApplicationController
+class Admin::PublishersController < AdminController
   layout "admin"
-
   before_action :find_by_id, except: %i(new create index)
+  load_and_authorize_resource
 
   def index
     @pagy, @publishers = pagy Publisher.latest,

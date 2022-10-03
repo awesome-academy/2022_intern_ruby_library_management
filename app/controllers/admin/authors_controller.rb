@@ -1,7 +1,8 @@
-class Admin::AuthorsController < ApplicationController
+class Admin::AuthorsController < AdminController
   layout "admin"
   before_action :authenticate_user!
   before_action :find_by_id, except: %i(new create index)
+  load_and_authorize_resource
 
   def index
     @authors_search = Author.ransack(params[:q].try(:merge, m: "or"),
