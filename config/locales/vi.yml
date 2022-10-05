@@ -233,6 +233,10 @@ vi:
   pending: "Chờ duyệt"
   accept: "Chấp nhận"
   disagree: "Từ chối"
+  statistic: "Thống kê"
+  statistic_top_book_order: "Top 5 sách có nhiều lượt mượn nhất"
+  statistic_top_user_order: "Top 5 người dùng mượn nhieu nhất"
+  number_of_times_borrow: "Lượt mượn"
   user_login:
     error_login: "Tên đăng nhập hoặc mật khẩu không đúng"
   admin:

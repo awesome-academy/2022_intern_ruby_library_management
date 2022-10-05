@@ -40,7 +40,7 @@ class Order < ApplicationRecord
   end
 
   def send_mail_confirm_order
-    OrderMailer.send_note_admin(self).deliver_now
+    OrderMailer.send_note_admin(self).deliver_later
   end
 
   private
