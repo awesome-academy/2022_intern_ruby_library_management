@@ -12,7 +12,7 @@ class Admin::OrdersController < AdminController
                               "note_admin asc", "date_start asc",
                               "date_return asc"]
     end
-    @pagy, @orders = pagy @orders_search.result.includes(:user),
+    @pagy, @orders = pagy @orders_search.result.includes(:user).latest,
                           items: Settings.order.max_page,
                           link_extra: 'data-remote="true"'
   end

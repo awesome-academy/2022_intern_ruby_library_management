@@ -6,11 +6,7 @@ class Website::UsersController < WebsiteController
 
   def update
     current_user.update user_params
-    respond_to do |format|
-      format.js do
-        render "website/users/edit"
-      end
-    end
+    redirect_to user_path(current_user)
   end
 
   private
