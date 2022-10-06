@@ -1,7 +1,7 @@
 <% if @publisher.errors.any? %>
   toastr.error("<%= @publisher.errors.first.full_message %>", "", {"closeButton": true})
 <% else %>
-  <% if status === Settings.status.success %>
+  <% if @status %>
     $("#contentTablePublisher").html("<%= j render @publishers %>")
     if("<%= action === 'create' %>" === "true"){
       $("#pagyPublisher").html("<%== j pagy_nav @pagy %>")

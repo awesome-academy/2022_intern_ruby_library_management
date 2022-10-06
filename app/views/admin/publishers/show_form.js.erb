@@ -1,3 +1,3 @@
-$("#modalLiveLabel").html("<%= action == 'new' ? I18n.t('admin.publishers.show.create_author') : I18n.t('admin.authors.show.update_author') %>");
+$("#modalLiveLabel").html("<%= action == 'new' ? I18n.t('admin.publishers.show.create_publisher') : I18n.t('admin.publishers.show.update_publisher') %>");
 $(".modal-body").html("<%= j render 'publisher_form', publisher: @publisher %>");
 $("#modalLive").modal("show");

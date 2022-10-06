@@ -58,10 +58,6 @@ order_detail:
   quantity_real:
     inscrese: "inscrese"
     descrese: "descrese"
-status:
-  success: 200
-  internal_server_error: 500
-  not_found: 404
 devise:
   stretches_min: 1
   stretches_max: 12
