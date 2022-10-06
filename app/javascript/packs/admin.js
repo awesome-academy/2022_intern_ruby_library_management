@@ -3,11 +3,12 @@ import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 
-import jquery from 'jquery';
+import jquery from "jquery";
 window.jQuery = jquery;
 window.$ = jquery;
 
-import Swal from 'sweetalert2/dist/sweetalert2.min.js'
+import "chartkick/chart.js"
+import Swal from "sweetalert2/dist/sweetalert2.min.js"
 window.Swal = Swal;
 
 Rails.start()

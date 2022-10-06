@@ -1,0 +1,56 @@
+<% provide :title, t("home") %>
+
+<section class="pcoded-main-container">
+  <div class="pcoded-wrapper">
+    <div class="pcoded-content">
+      <div class="pcoded-inner-content">
+        <div class="main-body">
+          <div class="page-wrapper">
+            <div class="page-header">
+              <div class="page-block">
+                <div class="row align-items-center">
+                  <div class="col-md-12">
+                    <div class="page-header-title">
+                      <h5 class="m-b-10">
+                        <%= t "home" %>
+                      </h5>
+                    </div>
+                    <ul class="breadcrumb">
+                      <li class="breadcrumb-item">
+                        <%= link_to admin_home_path do %>
+                          <i class="feather icon-home"></i>
+                        <% end %>
+                      </li>
+                      <li class="breadcrumb-item">
+                        <%= link_to t("home"), admin_home_path %>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-sm-12">
+                <div class="page-header">
+                  <div class="card-header">
+                    <h4><%= t "top_user_order" %></h4>
+                  </div>
+                  <div class="card-body">
+                    <%= column_chart render_chart_top_user_order(@top_user_order) %>
+                  </div>
+                  <div class="card-header">
+                    <h4><%= t "top_book_order" %></h4>
+                  </div>
+                  <div class="card-body">
+                    <%= bar_chart render_chart_top_book_order(@top_book_order) %>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -25,6 +25,8 @@ class AdminController < ApplicationController
   end
 
   def block_user
+    return redirect_to login_path if current_user.blank?
+
     redirect_to root_path if current_user.user?
   end
 end

@@ -7,6 +7,8 @@
     "@rails/activestorage": "^6.0.0",
     "@rails/ujs": "^6.0.0",
     "@rails/webpacker": "5.4.3",
+    "chart.js": "^3.9.1",
+    "chartkick": "^4.2.0",
     "font-awesome": "^4.7.0",
     "i18n-js": "3.9.2",
     "jquery": "^3.6.0",
