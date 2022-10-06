@@ -4,11 +4,14 @@ user:
   name_max: 100
   email_max: 100
   avatar_default: "user/avatar.png"
+  limit_top_order: 5
+  mail_admin: "nguyenvanzed18042000@gmail.com"
 book:
   min: 3
   max_page_book: 5
   max_page: 6
   max_page_search: 24
+  limit_top_order: 5
 category:
   min: 5
 author:

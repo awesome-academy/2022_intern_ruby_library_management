@@ -1,0 +1,37 @@
+<h2><%= t "statistic_top_book_order" %></h2>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col"><%= t "book" %></th>
+      <th scope="col"><%= t "number_of_times_borrow" %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @order_details.each do |key, value| %>
+      <tr>
+        <td><%= Book.find(key).name %></td>
+        <td><%= value %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<h2><%= t "statistic_top_user_order" %></h2>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col"><%= t "user" %></th>
+      <th scope="col"><%= t "number_of_times_borrow" %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @order.each do |user_id, times_order| %>
+      <tr>
+        <td>
+          <%= get_name_user user_id  %>
+        </td>
+        <td><%= times_order %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
