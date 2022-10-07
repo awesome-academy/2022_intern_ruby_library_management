@@ -265,6 +265,7 @@ vi:
       not_found_publisher: "Không tìm thấy nhà xuất bản"
       index:
         publisher: "Nhà xuất bản"
+        create_publisher: "Thêm mới nhà xuất bản"
         list_publisher: "Danh sách nhà xuất bản"
       show:
         publisher_detail: "Chi tiết nhà xuất bản"
@@ -273,6 +274,7 @@ vi:
       destroy:
         deleted: "Đã xoá nhà xuất bản sách"
         deleted_fails: "Xoá nhà xuất bản sách thất bại"
+        not_found_publisher: "Không tìm thấy nhà xuất bản"
       create:
         created: "Thêm mới nhà xuất bản thành công"
         created_fails: "Thêm mới nhà xuất bản thất bại"
