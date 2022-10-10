@@ -40,7 +40,7 @@
                     <h5>
                       <%= link_to t("books.add"), new_admin_book_path, class:"btn btn-primary" %>
                       <% if can? :super_admin, @books %>
-                        <%= link_to t("books.analytics"), "#", class:"btn btn-primary" %>
+                        <%= link_to "export", admin_books_path(format: :xlsx), class:"btn btn-primary" %>
                       <% end %>
                       <%= link_to t("books.search"), "#", class:"btn btn-primary" %>
                     </h5>
