@@ -4,7 +4,7 @@ user:
   name_max: 100
   email_max: 100
   avatar_default: "user/avatar.png"
-  limit_top_order: 5
+  limit_top_order: 7
   mail_admin: "nguyenvanzed18042000@gmail.com"
 book:
   min: 3

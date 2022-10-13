@@ -1,7 +1,7 @@
 vi:
   hello: "Xin chào "
   nav: "Tính năng"
-  index: "Trang chủ"
+  index: "ome chủ"
   page1: "Trang 1"
   page2: "Trang 2"
   list_nav: "Mục lục"
@@ -90,6 +90,8 @@ vi:
   enter_name_or_desc: "Nhập tên hoặc mô tả muốn tìm kiếm"
   clear_search: "Xóa bộ lọc"
   accept_quantity_book: "của bạn mượn được chấp nhận với số lượng là"
+  top_user_order: "Top 7 người dùng có lượt mượn nhiều nhất"
+  top_book_order: "Top 5 sách có được mượn nhiều nhất"
   news:
     post1: "Tin Tức"
     post2: "Sự kiện"
@@ -167,7 +169,7 @@ vi:
     add_ss: "Đã thêm 1 cuốn sách mới"
     edit_ss: "Sủa sách thành công"
     error: "Lỗi thêm sách"
-    image: "Ảnh trang bìa"
+    image: "Ảnh ome bìa"
     edit: "Sửa sách"
     delete_ss: "Xoá sách thành công."
     delete_faild: "Xoá sách thất bại."
@@ -240,6 +242,8 @@ vi:
   user_login:
     error_login: "Tên đăng nhập hoặc mật khẩu không đúng"
   admin:
+    home:
+      title: "Trang chủ"
     authors:
       index:
         author: "Tác giả"

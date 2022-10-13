@@ -7,23 +7,15 @@
             <%= t "nav" %>
           </label>
         </li>
-        <li class="nav-item pcoded-hasmenu">
-          <a href="#" class="nav-link ">
+        <li class="nav-item pcoded">
+          <%= link_to admin_home_path, class:"nav-link" do %>
             <span class="pcoded-micon">
               <i class="fas fa-home"></i>
             </span>
             <span class="pcoded-mtext">
-              <%= t "index" %>
+              <%= t "home" %>
             </span>
-          </a>
-          <ul class="pcoded-submenu">
-            <li>
-              <%= link_to t("page1"), "#" %>
-            </li>
-            <li>
-              <%= link_to t("page2"), "#" %>
-            </li>
-          </ul>
+          <% end %>
         </li>
         <li class="nav-item pcoded-hasmenu">
           <a href="#" class="nav-link ">
