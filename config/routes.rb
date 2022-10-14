@@ -20,7 +20,7 @@ Rails.application.routes.draw do
     scope module: "website" do
       root "home#index"
       get "/category_books/:id", to: "products#index", :as => :category
-      delete "/reset_cart", to: "order#delete_all_cart"
+      delete "/reset_cart", to: "order#destroy_all"
       resources :order, :carts, :comments, :users
       get "/order", to: "order#index"
       resources :products do

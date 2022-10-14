@@ -10,7 +10,7 @@ RSpec.describe Admin::AuthorsController, type: :controller do
     sign_in admin
   end
 
-  let(:author_1){
+  let!(:author_1){
     FactoryBot.create :author
   }
 

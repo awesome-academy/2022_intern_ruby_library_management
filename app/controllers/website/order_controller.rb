@@ -9,7 +9,7 @@ class Website::OrderController < WebsiteController
     if @order.save
       render json: @order
     else
-      render json: {message: "order.fails"}
+      render json: {message: t("order.fails")}
     end
   end
 

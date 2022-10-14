@@ -14,7 +14,7 @@ class Order < ApplicationRecord
   has_many :books, through: :order_details
   accepts_nested_attributes_for :order_details
 
-  scope :latest, ->{order updated_at: :desc}
+  scope :latest, ->{order created_at: :desc}
   delegate :name, to: :user, prefix: true
 
   ransack_alias :note_user_admin, :note_user_or_note_admin

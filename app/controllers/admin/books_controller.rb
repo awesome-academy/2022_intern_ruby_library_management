@@ -1,7 +1,7 @@
 class Admin::BooksController < AdminController
-  load_and_authorize_resource
   before_action :find_book, :find_array_category, except: %i(index new create)
   before_action :find_history_order, only: :destroy
+  load_and_authorize_resource
 
   def index
     @pagy, @books = pagy Book.latest_books,
@@ -71,8 +71,8 @@ class Admin::BooksController < AdminController
   end
 
   def find_history_order
-    @approved = @book.order_details.find_by status: :approved
-    return unless @approved
+    @approved = @book.order_details.where.not status: :pending
+    return if @approved.blank?
 
     flash[:danger] = t "books.order_approved"
     redirect_to admin_books_path

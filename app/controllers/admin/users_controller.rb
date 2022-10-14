@@ -1,6 +1,6 @@
 class Admin::UsersController < AdminController
-  load_and_authorize_resource
   before_action :find_user, except: %i(index)
+  load_and_authorize_resource
 
   def index
     @pagy, @users = pagy User.latest_user,
@@ -8,18 +8,13 @@ class Admin::UsersController < AdminController
   end
 
   def show
-    if @user
-      render json: {user: @user, code: 200}
-    else
-      render json: {message: t("users.not_found"), code: 404}
-    end
+    render json: {user: @user.to_json(except: :password_digest), code: 200}
   end
 
   def update
-    if @user.admin?
+    if @user.super_admin?
       render json: {message: t("users.activate_ff"), code: 404}
     else
-      @user.activate_admin
       render json: {message: t("users.activate_ss"), code: 200}
     end
   end

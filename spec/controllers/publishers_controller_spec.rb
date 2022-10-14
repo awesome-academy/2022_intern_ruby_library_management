@@ -4,7 +4,7 @@ include SessionsHelper
 RSpec.describe Admin::PublishersController, type: :controller do
   let(:admin) { FactoryBot.create(:user, role: "super_admin") }
 
-  let(:publisher_1) { FactoryBot.create(:publisher) }
+  let!(:publisher_1) { FactoryBot.create(:publisher) }
 
   before do
     sign_in admin

@@ -30,24 +30,6 @@ class Book < ApplicationRecord
     where(category_books: {category_id: id})
   end)
 
-  scope :by_order, ->(id){where(order_details: {order_id: id})}
-
-  scope :select_order, (lambda do
-    select "books.*,order_details.quantity,
-            order_details.status,order_details.quantity_real"
-  end)
-  scope :search_book_name, (lambda do |name|
-    where("name LIKE ?", "%#{name}%") if name.present?
-  end)
-  scope :search_category, (lambda do |category|
-    if category.present?
-      joins(:category_books).where("category_books.category_id=?", category)
-    end
-  end)
-  scope :search_author, (lambda do |author|
-    where(author_id: author) if author.present?
-  end)
-
   def display_image
     image.filename.present? ? image : ""
   end
